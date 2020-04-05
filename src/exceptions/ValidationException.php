@@ -2,19 +2,22 @@
 
 class ValidacionException extends AppException{
 
-    public function __construct($errors = [], 
-    $message = 'Erros de validação' ,
+    private $errors = [];
+
+    public function __construct($errors = [],
+     $message = 'Erros de validação' , 
      $code = 0, 
      $previous = null){
- 
-        parent::__construct($message, $code, $previous);
-        $this->errors = $errors;
+
+     parent::__construct($message, $code, $previous);
+     $this->errors = $errors;
+
     }
 
     public function getErrors(){
         return $this->errors;
     }
-    public function get($att){
+    public function get($att){// $attsao os atribs
         return $this->errors[$att];
     }
 }

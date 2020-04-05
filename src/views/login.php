@@ -1,5 +1,4 @@
 
-<?php error_reporting(1); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/login.css">
     
     
-    <title>PicaHoras</title>
+    <title>PicaAHora</title>
 
 
 </head>
@@ -30,27 +29,25 @@
             <div class="card-body">
                 <?php include(TEMPLATE_PATH . '/messages.php') ?>
                 <div class="form-group">
-                    
                     <label for="email">E-Mail</label>
-                    <input type="email" id="email"name="email" 
-                    class="form-control <?= $errors['email'] ? 'is-invalid' : ' ' ?>" 
-                    value="<?php echo $email ?>"
-                    placeholder="Insire o E-mail" >   
+                    <input type="email" id="email"name="email" class="form-control <?=$errors['email'] ? 'is-invalid' :  '' ?>" value="<?php echo $email ?>">
                     <div class="invalid-feedback">
 
-                        <?php $errors['email'] ?>
-                    </div> 
+                     <?=$errors['email']?>
+
+                     </div>
+                
+                
                 </div>
                 <div class="form-group">
 
                     <label for="password">Password</label>
-                    <input type="password" id="password"name="password" class="form-control <?php $errors['password'] ? 'invalid' : ''?>" 
-                    placeholder="Insire a Password" >
+                    <input type="password" id="password"name="password" class="form-control <?=$errors['password'] ? 'is-invalid' :  '' ?>"  placeholder="Insire a Password" >
                     <div class="invalid-feedback">
-                        <?php $errors['password'] ?>
-                    </div> 
-                
-                
+
+                    <?=$errors['password']?>
+
+                    </div>
                 </div>
             </div>
             <div class="card-footer">

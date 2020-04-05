@@ -1,36 +1,31 @@
 <?php
-    $errors= [];
-if($exception){
+$errors = [];
+
+
+
+if($exception) {
     $message = [
         'type' => 'error',
         'message' => $exception->getMessage()
     ];
 
-
-    if(get_class($exception) === 'ValidacionException'){
-        $errors = $exception->getErrors();
-    }
+     if(get_class($exception) === 'ValidationException') {
+         $errors = $exception->getErrors();
+     }
 }
 
+$alertType = '';
 
-
-
-$alertType= '';
-
-if($message['type'] === 'error'){
+if($message['type'] === 'error') {
     $alertType = 'danger';
-}else{
+} else {
     $alertType = 'success';
 }
-
 ?>
 
-
-
 <?php if($message): ?>
-<div class="my-3 alert alert-<?= $alertType ?>" role=" alert">
-
+    <div role="alert"
+        class="my-3 alert alert-<?= $alertType ?>">
         <?= $message['message'] ?>
-
-</div>
+    </div>
 <?php endif ?>
